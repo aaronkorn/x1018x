@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ContentView2.swift
 //  x1018x
 //
 //  Created by AARON KORN on 10/18/20.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct ContentView2: View {
   @Environment(\.managedObjectContext) private var viewContext
   
   @FetchRequest(
@@ -19,11 +19,7 @@ struct ContentView: View {
   var body: some View {
     List {
       ForEach(items) { item in
-        NavigationLink(
-          destination: ContentView2(),
-          label: {
-            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-          })
+        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
       }
       .onDelete(perform: deleteItems)
     }
@@ -79,8 +75,8 @@ private let itemFormatter: DateFormatter = {
   return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct ContentView2_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    ContentView2().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
   }
 }
