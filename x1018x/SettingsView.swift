@@ -21,7 +21,7 @@ struct SettingsView: View {
         Text("children: \(children)")
       }
     }
-    .navigationTitle("Settings")
+    .navigationTitle("SettingsView")
   }
 }
 
