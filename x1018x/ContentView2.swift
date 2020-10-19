@@ -18,7 +18,7 @@ struct ContentView2: View {
   
   var body: some View {
     List {
-      Text("UserDefaults value + 2 = \(valuePlus2())")
+      Text("We are a family of \(familySize())")
       
       ForEach(items) { item in
         Text("Item at \(item.timestamp!, formatter: itemFormatter)")

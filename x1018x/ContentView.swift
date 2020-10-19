@@ -11,6 +11,8 @@ import CoreData
 struct ContentView: View {
   @Environment(\.managedObjectContext) private var viewContext
   
+  @AppStorage("children") private var children: Int = 1
+  
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
     animation: .default)
@@ -18,18 +20,20 @@ struct ContentView: View {
   
   var body: some View {
     List {
-      Text("UserDefaults value + 2 = \(valuePlus2())")
+      Text("We are a family of \(familySize())")
       
       ForEach(items) { item in
         NavigationLink(
-          destination: ContentView2(),
+          destination: ContentView2().environment(\.managedObjectContext, viewContext),
           label: {
             Text("Item at \(item.timestamp!, formatter: itemFormatter)")
           })
       }
       .onDelete(perform: deleteItems)
+      
+      Text("\(children)").foregroundColor(Color.clear)
     }
-    .navigationTitle("ContentView2")
+    .navigationTitle("ContentView")
     .toolbar {
       #if os(iOS)
       ToolbarItem(placement: .navigationBarTrailing) { EditButton() }

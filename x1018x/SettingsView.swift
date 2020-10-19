@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-func valuePlus2() -> String {
-  return String(UserDefaults.standard.integer(forKey: "value") + 2)
+func familySize() -> String {
+  return String(UserDefaults.standard.integer(forKey: "children") + 2)
 }
 
 struct SettingsView: View {
   
-  @AppStorage("value") private var value: Int = 1
+  @AppStorage("children") private var children: Int = 1
   
   var body: some View {
     List {
-      Stepper(value: $value, in: 1...7) {
-        Text("value: \(value)")
+      Stepper(value: $children, in: 1...7) {
+        Text("children: \(children)")
       }
     }
     .navigationTitle("Settings")
