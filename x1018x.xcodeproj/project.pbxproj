@@ -14,6 +14,7 @@
 		818EC06F253CE7670068A18B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EC06E253CE7670068A18B /* Persistence.swift */; };
 		818EC072253CE7670068A18B /* x1018x.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 818EC070253CE7670068A18B /* x1018x.xcdatamodeld */; };
 		818EC07B253CE7D70068A18B /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EC07A253CE7D70068A18B /* ContentView2.swift */; };
+		818EC07E253D0B430068A18B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EC07D253D0B430068A18B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		818EC071253CE7670068A18B /* x1018x.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = x1018x.xcdatamodel; sourceTree = "<group>"; };
 		818EC073253CE7670068A18B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		818EC07A253CE7D70068A18B /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
+		818EC07D253D0B430068A18B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +60,15 @@
 		818EC064253CE7630068A18B /* x1018x */ = {
 			isa = PBXGroup;
 			children = (
-				818EC065253CE7630068A18B /* x1018xApp.swift */,
+				818EC073253CE7670068A18B /* Info.plist */,
 				818EC067253CE7630068A18B /* ContentView.swift */,
 				818EC07A253CE7D70068A18B /* ContentView2.swift */,
-				818EC069253CE7670068A18B /* Assets.xcassets */,
 				818EC06E253CE7670068A18B /* Persistence.swift */,
-				818EC073253CE7670068A18B /* Info.plist */,
-				818EC070253CE7670068A18B /* x1018x.xcdatamodeld */,
+				818EC07D253D0B430068A18B /* SettingsView.swift */,
+				818EC065253CE7630068A18B /* x1018xApp.swift */,
+				818EC069253CE7670068A18B /* Assets.xcassets */,
 				818EC06B253CE7670068A18B /* Preview Content */,
+				818EC070253CE7670068A18B /* x1018x.xcdatamodeld */,
 			);
 			path = x1018x;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				818EC06F253CE7670068A18B /* Persistence.swift in Sources */,
 				818EC072253CE7670068A18B /* x1018x.xcdatamodeld in Sources */,
 				818EC068253CE7630068A18B /* ContentView.swift in Sources */,
+				818EC07E253D0B430068A18B /* SettingsView.swift in Sources */,
 				818EC07B253CE7D70068A18B /* ContentView2.swift in Sources */,
 				818EC066253CE7630068A18B /* x1018xApp.swift in Sources */,
 			);

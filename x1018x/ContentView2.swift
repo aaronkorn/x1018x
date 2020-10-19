@@ -18,17 +18,16 @@ struct ContentView2: View {
   
   var body: some View {
     List {
+      Text("UserDefaults value + 2 = \(valuePlus2())")
+      
       ForEach(items) { item in
         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
       }
       .onDelete(perform: deleteItems)
     }
+    .navigationTitle("ContentView2")
     .toolbar {
-      #if os(iOS)
-      ToolbarItem(placement: .navigationBarTrailing) { EditButton() }
-      #endif
-      
-      ToolbarItem(placement: .bottomBar) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Button(action: addItem) {
           Label("Add Item", systemImage: "plus")
         }

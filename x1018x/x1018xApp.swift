@@ -13,9 +13,23 @@ struct x1018xApp: App {
   
   var body: some Scene {
     WindowGroup {
-      NavigationView {
-        ContentView()
-          .environment(\.managedObjectContext, persistenceController.container.viewContext)
+      TabView {
+        
+        NavigationView {
+          ContentView()
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }.tabItem {
+          Image(systemName: "1.circle").font(.title)
+          Text("Content")
+        }.tag(1)
+        
+        NavigationView {
+          SettingsView()
+        }.tabItem {
+          Image(systemName: "1.circle").font(.title)
+          Text("Settings")
+        }.tag(1)
+        
       }
     }
   }

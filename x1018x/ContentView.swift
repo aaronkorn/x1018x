@@ -18,6 +18,8 @@ struct ContentView: View {
   
   var body: some View {
     List {
+      Text("UserDefaults value + 2 = \(valuePlus2())")
+      
       ForEach(items) { item in
         NavigationLink(
           destination: ContentView2(),
@@ -27,6 +29,7 @@ struct ContentView: View {
       }
       .onDelete(perform: deleteItems)
     }
+    .navigationTitle("ContentView2")
     .toolbar {
       #if os(iOS)
       ToolbarItem(placement: .navigationBarTrailing) { EditButton() }
