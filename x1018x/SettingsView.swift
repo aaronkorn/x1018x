@@ -14,19 +14,20 @@ func familySizeF() -> String {
 class A7KChildren: ObservableObject {
   @Published var children: Int = UserDefaults.standard.integer(forKey: "children")
   
-  var familySize: String {
-    String(children + 2)
-  }
+  var familySize: Int { children + 2 }
   
   static let shared = A7KChildren()
   private init() {}
 }
 
 class A7KFish: ObservableObject {
-  @Published var children: Int = 0
+  var children: Int {
+    A7KChildren.shared.children
+  }
   
-  var familySize: String {
+  var familySize: Int {
     A7KChildren.shared.familySize
+    //UserDefaults.standard.integer(forKey: "children")
   }
   
   static let shared = A7KFish()
@@ -40,7 +41,7 @@ struct SettingsView: View {
   @StateObject private var a7KChildren: A7KChildren = A7KChildren.shared
   
   @StateObject private var a7KFish: A7KFish = A7KFish.shared
-
+  
   var body: some View {
     List {
       Stepper(value: $a7KChildren.children, in: 1...7) {
@@ -48,6 +49,7 @@ struct SettingsView: View {
       }
       
       Text("a7KFish familySize \(a7KFish.familySize)")
+      Text("a7KFish children \(a7KFish.children)")
     }
     .navigationTitle("SettingsView")
   }
