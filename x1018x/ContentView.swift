@@ -14,14 +14,18 @@ struct ContentView: View {
   
   @StateObject private var a7KChildren: A7KChildren = A7KChildren.shared
   
+  @StateObject private var a7KFish: A7KFish = A7KFish.shared
+
   var body: some View {
     List {
-      Text("UserDefaults family \(familySize())")
+      Text("UserDefaults familySizeF() \(familySizeF())")
       
       //Text("\(children)").foregroundColor(Color.clear)
       
-      Text("StateObject family \(a7KChildren.familySize)")
+      //Text("StateObject familySize \(a7KChildren.familySize)")
       Text("StateObject children \(a7KChildren.children)")
+      
+      Text("a7KFish familySize \(a7KFish.familySize)")
     }
     .navigationTitle("ContentView")
   }
