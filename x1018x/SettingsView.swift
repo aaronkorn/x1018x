@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 func familySizeF() -> Int { UserDefaults.standard.integer(forKey: "children") + 2 }
 
@@ -13,7 +14,11 @@ class A7KChildren: ObservableObject {
   @Published var children: Int = 1
   var familySize: Int { children + 2 }
   
-  @Published var childrenUserDefaults: Int = UserDefaults.standard.integer(forKey: "children")
+  @Published var childrenUserDefaults: Int = UserDefaults.standard.integer(forKey: "children") {
+    didSet {
+      UserDefaults.standard.set(childrenUserDefaults, forKey: "children")
+    }
+  }
   var familySizeUserDefaults: Int { childrenUserDefaults + 2 }
   
   static let shared = A7KChildren()
