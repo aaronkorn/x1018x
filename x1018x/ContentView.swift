@@ -18,15 +18,21 @@ struct ContentView: View {
   
   var body: some View {
     List {
-      Text("UserDefaults familySizeF() \(familySizeF())")
-      
-      //Text("\(children)").foregroundColor(Color.clear)
-      
-      //Text("StateObject familySize \(a7KChildren.familySize)")
-      //Text("StateObject children \(a7KChildren.children)")
-      
-      Text("a7KFish familySize \(a7KFish.familySize)")
       Text("a7KFish children \(a7KFish.children)")
+      Text("a7KFish familySize \(a7KFish.familySize)")
+      
+      Text("-")
+      
+      Text("a7KFish childrenUserDefaults \(a7KFish.childrenUserDefaults)")
+      Text("a7KFish familySizeUserDefaults \(a7KFish.familySizeUserDefaults)")
+      
+      Text("-")
+      
+      Text("a7KFish childrenAppStorage \(a7KFish.childrenAppStorage)")
+      
+      Text("-")
+      
+      Text("UserDefaults familySizeF() \(familySizeF())")
     }
     .navigationTitle("ContentView")
   }

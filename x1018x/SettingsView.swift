@@ -7,28 +7,27 @@
 
 import SwiftUI
 
-func familySizeF() -> String {
-  return String(UserDefaults.standard.integer(forKey: "children") + 2)
-}
+func familySizeF() -> Int { UserDefaults.standard.integer(forKey: "children") + 2 }
 
 class A7KChildren: ObservableObject {
-  @Published var children: Int = UserDefaults.standard.integer(forKey: "children")
-  
+  @Published var children: Int = 1
   var familySize: Int { children + 2 }
+  
+  @Published var childrenUserDefaults: Int = UserDefaults.standard.integer(forKey: "children")
+  var familySizeUserDefaults: Int { childrenUserDefaults + 2 }
   
   static let shared = A7KChildren()
   private init() {}
 }
 
 class A7KFish: ObservableObject {
-  var children: Int {
-    A7KChildren.shared.children
-  }
+  var children: Int { A7KChildren.shared.children }
+  var familySize: Int { A7KChildren.shared.familySize }
   
-  var familySize: Int {
-    A7KChildren.shared.familySize
-    //UserDefaults.standard.integer(forKey: "children")
-  }
+  var childrenUserDefaults: Int { A7KChildren.shared.childrenUserDefaults }
+  var familySizeUserDefaults: Int { A7KChildren.shared.familySizeUserDefaults }
+  
+  var childrenAppStorage: Int { UserDefaults.standard.integer(forKey: "children") }
   
   static let shared = A7KFish()
   private init() {}
@@ -36,7 +35,7 @@ class A7KFish: ObservableObject {
 
 struct SettingsView: View {
   
-  //@AppStorage("children") private var children: Int = 1
+  @AppStorage("children") private var children: Int = 1
   
   @StateObject private var a7KChildren: A7KChildren = A7KChildren.shared
   
@@ -44,12 +43,27 @@ struct SettingsView: View {
   
   var body: some View {
     List {
+      Text("a7KFish children \(a7KFish.children)")
+      Text("a7KFish familySize \(a7KFish.familySize)")
+      
       Stepper(value: $a7KChildren.children, in: 1...7) {
         Text("a7KChildren.children: \(a7KChildren.children)")
       }
       
-      Text("a7KFish familySize \(a7KFish.familySize)")
-      Text("a7KFish children \(a7KFish.children)")
+      Text("a7KFish childrenUserDefaults \(a7KFish.childrenUserDefaults)")
+      Text("a7KFish familySizeUserDefaults \(a7KFish.familySizeUserDefaults)")
+      
+      Stepper(value: $a7KChildren.childrenUserDefaults, in: 1...7) {
+        Text("a7KChildren.childrenUserDefaults: \(a7KChildren.childrenUserDefaults)")
+      }
+      
+      Text("a7KFish childrenAppStorage \(a7KFish.childrenAppStorage)")
+      
+      Stepper(value: $children, in: 1...7) {
+        Text("AppStorage children: \(children)")
+      }
+      
+      Text("UserDefaults familySizeF() \(familySizeF())")
     }
     .navigationTitle("SettingsView")
   }
