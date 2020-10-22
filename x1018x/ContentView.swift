@@ -23,7 +23,7 @@ struct ContentView: View {
       //Text("\(children)").foregroundColor(Color.clear)
       
       //Text("StateObject familySize \(a7KChildren.familySize)")
-      Text("StateObject children \(a7KChildren.children)")
+      //Text("StateObject children \(a7KChildren.children)")
       
       Text("a7KFish familySize \(a7KFish.familySize)")
     }
