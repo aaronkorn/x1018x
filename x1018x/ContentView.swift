@@ -13,14 +13,15 @@ struct ContentView: View {
   //@AppStorage("children") private var children: Int = 1
   
   @StateObject private var a7KChildren: A7KChildren = A7KChildren.shared
-
+  
   var body: some View {
     List {
-      Text("We are a family of \(familySize())")
+      Text("UserDefaults family \(familySize())")
       
       //Text("\(children)").foregroundColor(Color.clear)
       
-      Text("StateObject family of \(a7KChildren.familySize)")
+      Text("StateObject family \(a7KChildren.familySize)")
+      Text("StateObject children \(a7KChildren.children)")
     }
     .navigationTitle("ContentView")
   }
