@@ -40,7 +40,7 @@ class A7KFish: ObservableObject {
 
 struct SettingsView: View {
   
-  @AppStorage("children") private var children: Int = 1
+  //@AppStorage("children") private var children: Int = 1
   
   @StateObject private var a7KChildren: A7KChildren = A7KChildren.shared
   
@@ -64,9 +64,10 @@ struct SettingsView: View {
       
       Text("a7KFish childrenAppStorage \(a7KFish.childrenAppStorage)")
       
-      Stepper(value: $children, in: 1...7) {
-        Text("AppStorage children: \(children)")
-      }
+      Text("-")
+      //Stepper(value: $children, in: 1...7) {
+      //  Text("AppStorage children: \(children)")
+      //}
       
       Text("UserDefaults familySizeF() \(familySizeF())")
     }
