@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
   
-  @AppStorage("children") private var children: Int = 1
+  //@AppStorage("children") private var children: Int = 1
   
   @StateObject private var a7KChildren: A7KChildren = A7KChildren.shared
 
@@ -18,9 +18,9 @@ struct ContentView: View {
     List {
       Text("We are a family of \(familySize())")
       
-      Text("\(children)").foregroundColor(Color.clear)
+      //Text("\(children)").foregroundColor(Color.clear)
       
-      Text("\(a7KChildren.children)")
+      Text("StateObject family of \(a7KChildren.familySize)")
     }
     .navigationTitle("ContentView")
   }
